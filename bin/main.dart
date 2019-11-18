@@ -19,49 +19,44 @@ import 'dart:io';
 // game_over boolean to false. It should return "game restarted".
 class Shiritori {
   bool game_over = false;
-  List<String> words =[];
-
-  //Shiritori({this.words,this.game_over});
-
-
-
+  List<String> words = [];
   bool play(String word) {
-
     if (words.isEmpty) {
-      game_over=false;
-      print("Adding Word");
+      game_over = false;
+      words.add(word);
+
+      return true;
+    } else if (words.contains(word)) {
+      game_over = true;
+      return false;
+    }
+
+    else if (words.last[words.last.length - 1] == word[0] ||
+        words.last[words.last.length - 1] == word[0].toLowerCase()) {
+      game_over = false;
       words.add(word);
       print(words);
       return true;
-    } else {
-      if (words.last[words.last.length - 1] == word[0] ||words.last[words.last.length - 1] == word[0].toLowerCase()) {
-        game_over=false;
-        print("Adding Word");
-        words.add(word);
-        print(words);
-        return true;
-      } else if(word==null) {
-        print("Null Word");
-        game_over=true;
-        return false;
-      }
-      else {
-        print("Not Matching");
-
-        game_over = true;
-        return false;
-      }
     }
-
-    restart();
+    else if (word == null) {
+      game_over = true;
+      return false;
+    }
+    else {
+      game_over = true;
+      return false;
+    }
   }
-
   void restart() {
     print("Game Restarted");
     game_over = false;
     words = [];
   }
 }
+
+
+
+
 
 main() {
   Shiritori newGame = Shiritori();

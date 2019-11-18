@@ -13,7 +13,7 @@ void main() {
     expect((Shiritori.words != Shiritori.words.toSet() && gameover == true), true);
   });
   test('Test if restart is working', (){
-    Shiritoro.restart();
+    Shiritori.restart();
     expect((Shiritori.words == [] && gameover == false), true);
   });
 }

@@ -22,7 +22,8 @@ main() {
 
 class Shiritori{
   bool game_over = false;
-  List words = [];
+  List<String> words = [];
+  Shiritori({this.words,this.game_over});
   bool play(String word) {
     return(word[word.length] == words.last.toString()[0]);
   }

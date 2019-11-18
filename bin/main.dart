@@ -26,5 +26,8 @@ class Shiritori{
   bool play(String word) {
     return(word[word.length] == words.last.toString()[0]);
   }
-  void restart() {}
+  void restart() {
+    game_over = true;
+    words = [];
+  }
 }

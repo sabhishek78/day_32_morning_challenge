@@ -15,18 +15,16 @@
 // (the word should follow rules #1 and #2 above).
 // - restart: a method that sets the words list to an empty one [] and sets the
 // game_over boolean to false. It should return "game restarted".
-class Shiritori{
-  List<String> words;
-  bool game_over;
-  play(String word){
 
-  }
-  restart(){
-    words=[];
-    game_over=false;
-  }
-}
 main() {
- Shiritori game1=Shiritori();
- game1.play(["hello","oxygen","nephew","owl"]);
+
+}
+
+class Shiritori{
+  bool game_over = false;
+  List words = [];
+  bool play(String word) {
+    return(word[word.length] == words.last.toString()[0]);
+  }
+  void restart() {}
 }

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 // Challenge
 // Shiritori Game
 // This challenge is an English twist on the Japanese word game Shiritori.
@@ -15,20 +17,44 @@
 // (the word should follow rules #1 and #2 above).
 // - restart: a method that sets the words list to an empty one [] and sets the
 // game_over boolean to false. It should return "game restarted".
-
-main() {
-
-}
-
-class Shiritori{
+class Shiritori {
   bool game_over = false;
   List<String> words = [];
-  Shiritori({this.words,this.game_over});
+
   bool play(String word) {
-    return(word[word.length] == words.last.toString()[0]);
+    while (!game_over) {
+      if (words.isEmpty) {
+        print("Adding Word");
+        words.add(word);
+        print(words);
+        return true;
+      } else {
+        if (words.last[words.last.length - 1] == word[0]) {
+          print("Adding Word");
+          words.add(word);
+          print(words);
+          return true;
+        } else {
+          print("Not Matching");
+          game_over = true;
+        }
+      }
+    }
+    restart();
   }
+
   void restart() {
-    game_over = true;
+    print("Game Restarted");
+    game_over = false;
     words = [];
   }
+}
+
+main() {
+  Shiritori newGame = Shiritori();
+  newGame.restart();
+  print(newGame.play("Hello"));
+  print(newGame.play("orange"));
+  print(newGame.play("eagle"));
+  print(newGame.play("fox"));
 }

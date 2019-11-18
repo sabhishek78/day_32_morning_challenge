@@ -32,7 +32,7 @@ class Shiritori {
     }
 
     else if (words.last[words.last.length - 1] == word[0] ||
-        words.last[words.last.length - 1] == word[0].toLowerCase()) {
+        words.last[words.last.length - 1] == word[0].toLowerCase() ||words.last[words.last.length - 1].toLowerCase() == word[0]) {
       game_over = false;
       words.add(word);
       print(words);

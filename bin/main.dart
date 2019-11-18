@@ -19,3 +19,12 @@
 main() {
 
 }
+
+class Shiritori{
+  bool game_over = false;
+  List words = [];
+  bool play(String word) {
+    return(word[word.length] == words.last.toString()[0]);
+  }
+  void restart() {}
+}

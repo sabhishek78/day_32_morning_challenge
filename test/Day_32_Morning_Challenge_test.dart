@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:test/test.dart';
 import '../bin/main.dart';
 
@@ -8,7 +10,7 @@ void main() {
   test('Tes11t if words are chained properly', (){
     Shiritori shirotori = Shiritori();
 
-    expect(shirotori.play, true);
+    expect(shirotori.words[shirotori.words.length].substring(shirotori.words.length) == shirotori.words[shirotori.words.length-1].substring(0), true);
   });
   test('Test if words are not repeated', (){
     Shiritori shirotori = Shiritori();

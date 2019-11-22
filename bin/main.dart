@@ -21,28 +21,17 @@ class Shiritori {
   bool game_over = false;
   List<String> words = [];
   bool play(String word) {
-    if (words.isEmpty) {
-      game_over = false;
-      words.add(word);
-
-      return true;
-    } else if (words.contains(word)) {
+    if ((words.contains(word)) ||(word == null)) {
       game_over = true;
       return false;
     }
-
-    else if (words.last[words.last.length - 1] == word[0] ||
+     else if (words.isEmpty||words.last[words.last.length - 1] == word[0] ||
         words.last[words.last.length - 1] == word[0].toLowerCase() ||words.last[words.last.length - 1].toLowerCase() == word[0]) {
       game_over = false;
       words.add(word);
-      print(words);
       return true;
     }
-    else if (word == null) {
-      game_over = true;
-      return false;
-    }
-    else {
+     else {
       game_over = true;
       return false;
     }
